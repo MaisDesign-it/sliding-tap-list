@@ -11,7 +11,7 @@
 <body>
 <main role="main">
     <?php
-    $spine = 9;
+    $spine = 10;
 
     $bollo1 = "img/falesia.png";
     $bollo2 = $bollo1;
@@ -46,6 +46,10 @@
     $scheda9 = $scheda1;
     $scheda10 = $scheda1;
 
+    $caltezza = ($spine/2);
+    $altezza = ceil($caltezza)+1;
+    $peraltezza = 100/$altezza;
+    $round = round($peraltezza, 2);
     ?>
 
 
@@ -61,14 +65,14 @@
 
                 <div class="container">
                     <div class="carousel-caption text-left taplist">
-                        <div class="row col-12">
+                        <div class="row col-12" style="height:<?php echo $round;?>%">
                             <h2 class="col-12 text-center text-uppercase border">TAP LIST</h2>
                         </div>
                         <?php
-                        for ($numspine = 0; $numspine < $spine; $numspine++) { ;?>
+                        for ($numspine = 1; $numspine <= $spine; $numspine++) { ;?>
                             <?php
-                            if ($numspine % 2 == 0) {;?>
-                                <div class="taplist row">
+                            if ($numspine % 2 != 0) {;?>
+                                <div class="taplist row" style="height:<?php echo $round;?>% ">
                             <?php };?>
                             <div class="col-6 border fittap">
 
@@ -77,36 +81,38 @@
                                         <img src="<?php echo $bollo1 ;?>" alt="<?php echo $birra1 ;?>" class="img-fluid" />
                                     </div>
                                     <div class="col-10">
-                                        <h3>Spina n°<?php echo $numspine+1;?></h3><?php echo $birra1 ;?>
+                                        <?php echo $birra1 ;?>
                                     </div>
                                 </div>
 
                             </div>
-                                    <?php
-                                        if (($numspine % 2 != 0) or ($numspine == $spine)) {;?>
-                                            </div><!-- crea le row ogni 2 spine -->
-                                                <?php };?>
+                            <?php
+                            if (($numspine % 2 == 0) or ($numspine == $spine)) {;?>
+                                </div><!-- crea le row ogni 2 spine <?php echo $numspine ;?> -->
+                            <?php };?>
                         <?php } ;?>
+                    </div><!-- carousel-caption text-left taplist -->
                 </div><!-- container -->
             </div> <!-- Carousel-item active -->
 
-<!--
-            <div class="carousel-item">
-                <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="megabollo col-6">
-                            <img src="<?php echo $bollo1 ?>" alt="<?php echo $birra1 ?>" title="<?php echo $birra1 ?>" />
+
+            <!--
+                        <div class="carousel-item">
+                            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="megabollo col-6">
+                                        <img src="<?php echo $bollo1 ?>" alt="<?php echo $birra1 ?>" title="<?php echo $birra1 ?>" />
+                                    </div>
+                                    <div class="col-6">
+                                        <h2><?php echo $birra1 ?></h2>
+                                        <p><?php echo $scheda1 ?></p>
+                                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <h2><?php echo $birra1 ?></h2>
-                            <p><?php echo $scheda1 ?></p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
--->
+            -->
             <!--
             <div class="carousel-item ">
                 <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
@@ -136,12 +142,12 @@
 <!-- JS for Slider -->
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<!-- JS for squeezing text in your taplist -->
+<!-- JS for squeezing text in your taplist
 <script src="js/jquery.fittext.js"></script>
 <script type="text/javascript">
     $(".fittap").fitText(1.1, { minFontSize: '7vh', maxFontSize: '20vh' });
 </script>
-<!-- End of squeezing JS -->
+ End of squeezing JS -->
 </body>
 
 </html>
