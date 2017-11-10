@@ -58,9 +58,26 @@
             <li data-target="#myCarousel" data-slide-to="0" class=""></li>
             <li data-target="#myCarousel" data-slide-to="1" class=""></li>
             <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="5" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="6" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="7" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="8" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="9" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="10" class=""></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+
+            <?php
+            $numschede = 1;
+            while ($numschede <= $spine) { ;?>
+
+                <?php if ($numschede == 1){;?>
+            <div class="carousel-item active"><!-- Slide numero <?php echo $numschede;?> -->
+                <?php }else{;?>
+                    <div class="carousel-item"><!-- Slide numero <?php echo $numschede;?> -->
+                <?php };?>
                 <img class="first-slide" src="img/sfondotap.jpg" alt="First slide">
 
                 <div class="container">
@@ -95,6 +112,22 @@
                 </div><!-- container -->
             </div> <!-- Carousel-item active -->
 
+            <!-- Inizio seconda slide -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="megabollo col-4">
+                            <img src="" class="" alt="" title="" />
+                        </div>
+                        <div class="descrizione col-8">
+                            <h3 class="nomebirra" > NOME BIRRA </h3>
+                            <p class="descrizionebirra">Descrizione della birra piuttosto lunga e rompi palle, uffa che noia, voglio bere!</p>
+                        </div>
+                    </div><!-- row -->
+                </div><!-- container -->
+            </div><!-- carousel-item -->
+            <!-- Fine seconda slide -->
+    <?php $numschede++; };?> <!-- Fine ciclo principale -->
 
             <!--
                         <div class="carousel-item">
